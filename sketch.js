@@ -1,6 +1,8 @@
-// in this sketch we're going to send the current frame and one past frame to the shader
-// we will subtract one frame from the other to find the difference between the frames
-// frame differencing can be useful  when you want to detect if something is moving in front of the camera, or as a stepping stone to something like determining optical flow
+// Sources:
+// https://discourse.processing.org/t/backbuffer-in-p5js/29769/6
+// https://www.shadertoy.com/view/ld3Sz7
+// https://github.com/aferriss/p5jsShaderExamples
+// https://itp-xstory.github.io/p5js-shaders/#/./docs/examples/shadertoy
 
 // the shader variable
 let theShader;
