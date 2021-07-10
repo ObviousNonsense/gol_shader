@@ -28,7 +28,8 @@ void main() {
     float positionY = 1.0 - (gl_FragCoord.y / u_resolution.y);
     vec2 position = vec2(positionX, positionY);
 
-    float currentPixel = texture2D(u_pastFrame, position).r;
+    float currentPixel = N(0, 0);
+    // float currentPixel = texture2D(u_pastFrame, position).r;
 
     if (u_frame > 5) {
         if (distance(u_mouse, gl_FragCoord.xy) < brushSize && u_mousePressed) {
@@ -56,7 +57,10 @@ void main() {
         currentPixel = snoise(vTexCoord) > 0.8 ? 1.0 : 0.0;
     }
 
-    gl_FragColor = vec4(currentPixel, position * currentPixel, 1.0);
+    gl_FragColor = vec4(0.8*currentPixel,
+        (0.5 + 0.5*sin(6.24*position.y*(1.0-position.x)+float(u_frame)/40.0)) * currentPixel,
+        (0.5 + 0.5*sin(6.24*position.y*position.x+float(u_frame)/15.0)) * currentPixel,
+        1.0);
     // gl_FragColor = vec4(vec3(currentPixel), 1.0);
 
 }
