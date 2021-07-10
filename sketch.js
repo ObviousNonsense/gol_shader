@@ -17,10 +17,12 @@ function preload() {
 function setup() {
     // shaders require WEBGL mode to work
     canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+    pixelDensity(1)
     noStroke();
 
     // the pastFrame layer doesn't need to be WEBGL
     pastFrame = createGraphics(width, height);
+    pastFrame.pixelDensity(1);
 }
 
 function draw() {
