@@ -1,6 +1,6 @@
 # Game of Life with WebGL
 
-[obviousnonsense.github.io/gol_shader/]()
+[obviousnonsense.github.io/gol_shader/](https://obviousnonsense.github.io/gol_shader/)
 
 Conway's game of life calculated on your GPU using shaders.
 
