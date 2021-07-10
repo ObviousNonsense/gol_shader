@@ -46,4 +46,6 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+    pastFrame.resizeCanvas(width, height);
+    frameCount = 0;
 }
