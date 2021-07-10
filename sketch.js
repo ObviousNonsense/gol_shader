@@ -37,6 +37,7 @@ function draw() {
     theShader.setUniform('u_time', millis() * 1000)
     theShader.setUniform("u_mouse", [mouseX*pixelDensity(), map(mouseY*pixelDensity(), 0, height*pixelDensity(), height*pixelDensity(), 0)]);
     theShader.setUniform("u_mousePressed", mouseIsPressed);
+    theShader.setUniform("u_randomSeed", random(0.8, 1.2));
 
     // rect gives us some geometry on the screen
     // scale(5)

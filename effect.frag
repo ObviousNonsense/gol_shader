@@ -16,9 +16,10 @@ uniform int u_frame;
 uniform float u_time;
 uniform vec2 u_mouse;
 uniform bool u_mousePressed;
+uniform float u_randomSeed;
 
 float snoise(in vec2 co) {
-    return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453 * u_randomSeed);
 }
 
 void main() {
