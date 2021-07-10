@@ -8,6 +8,7 @@
 let theShader;
 let canvas;
 let pastFrame;
+// let gl;
 
 function preload() {
     // load the shader
@@ -17,12 +18,13 @@ function preload() {
 function setup() {
     // shaders require WEBGL mode to work
     canvas = createCanvas(windowWidth, windowHeight, WEBGL);
-    pixelDensity(1)
     noStroke();
 
     // the pastFrame layer doesn't need to be WEBGL
     pastFrame = createGraphics(width, height);
-    pastFrame.pixelDensity(1);
+
+    // let gl = canvas.GL;
+    // gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
 }
 
 function draw() {
@@ -30,10 +32,10 @@ function draw() {
     shader(theShader);
 
     theShader.setUniform('u_pastFrame', pastFrame);
-    theShader.setUniform('u_resolution', [width, height]);
+    theShader.setUniform('u_resolution', [width*pixelDensity(), height*pixelDensity()]);
     theShader.setUniform('u_frame', frameCount)
     theShader.setUniform('u_time', millis() * 1000)
-    theShader.setUniform("u_mouse", [mouseX, map(mouseY, 0, height, height, 0)]);
+    theShader.setUniform("u_mouse", [mouseX*pixelDensity(), map(mouseY*pixelDensity(), 0, height*pixelDensity(), height*pixelDensity(), 0)]);
     theShader.setUniform("u_mousePressed", mouseIsPressed);
 
     // rect gives us some geometry on the screen

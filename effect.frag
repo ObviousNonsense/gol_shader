@@ -4,6 +4,7 @@
 #define N(i, j) float(T(i, j) > 0.0)
 
 precision mediump float;
+precision mediump int;
 
 // grab texcoords from the vertex shader
 varying vec2 vTexCoord;
@@ -56,5 +57,6 @@ void main() {
     }
 
     gl_FragColor = vec4(currentPixel, position * currentPixel, 1.0);
+    // gl_FragColor = vec4(vec3(currentPixel), 1.0);
 
 }
